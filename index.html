@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #ffffff; /* Tema Putih */
+            color: #333333;
+            text-align: center;
+        }
+        /* Anggap ini class untuk nempelin gambar ornamen batik lu */
+        .batik-ornament {
+            width: 100%;
+            height: 100px;
+            background-image: url('path-ke-gambar-batik-lu.png'); /* Ganti dengan file batik */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 20px 0;
+        }
+        .cover, .content {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .content {
+            display: none; /* Disembunyikan sebelum tombol Buka ditekan */
+        }
+        button {
+            background-color: #8b5a2b; /* Warna coklat elemen batik */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .guest-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #8b5a2b;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="lagu-pernikahan.mp3" type="audio/mpeg"> </audio>
+
+    <div class="cover" id="cover-page">
+        <h1>Pernikahan Kami</h1>
+        <div class="batik-ornament"></div>
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i,</p>
+        <div class="guest-name" id="nama-tamu-cover">Tamu Undangan</div>
+        <button onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+
+    <div class="content" id="main-content">
+        <div class="batik-ornament"></div>
+        <h2>Mempelai Pria & Wanita</h2>
+        <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
+        <p>Acara akan diselenggarakan pada...</p>
+        </div>
+
+    <script>
+        // Mengambil nama tamu dari link (contoh: ?to=Budi+Santoso)
+        const urlParams = new URLSearchParams(window.location.search);
+        let namaTamu = urlParams.get('to');
+
+        // Jika tidak ada nama di link, pakai teks default
+        if (!namaTamu) {
+            namaTamu = "Tamu Undangan";
+        }
+
+        // Memasukkan nama tamu ke dalam HTML
+        document.getElementById('nama-tamu-cover').innerText = namaTamu;
+
+        // Fungsi untuk membuka undangan & memutar musik
+        function bukaUndangan() {
+            document.getElementById('cover-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'flex';
+            
+            // Memutar musik
+            let music = document.getElementById('bg-music');
+            music.play();
+        }
+    </script>
+</body>
+</html>
