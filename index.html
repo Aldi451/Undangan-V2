@@ -24,7 +24,7 @@
         .batik-ornament {
             width: 100%;
             height: 80px;
-            background-image: url('batik.png'); /* Pastikan file batik.png ada */
+            background-image: url('batik.png'); /* Nanti ganti dengan nama file gambar batik lu (.png/.svg) */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -121,14 +121,15 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Wadah YouTube Sembunyi */
-        #youtube-audio {
-            display: none;
-        }
     </style>
 </head>
 <body>
+
+    <!-- Audio Musik Pernikahan -->
+    <!-- Ganti 'lagu-pernikahan.mp3' dengan nama file lagu lu yang ada di folder yang sama -->
+    <audio id="bg-music" loop>
+        <source src="lagu-pernikahan.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- HALAMAN COVER DEPAN -->
     <div class="cover" id="cover-page">
@@ -195,9 +196,6 @@
         <div class="batik-ornament"></div>
     </div>
 
-    <!-- Tempat menaruh iframe YouTube secara dinamis -->
-    <div id="youtube-audio"></div>
-
     <!-- SCRIPT JAVASCRIPT -->
     <script>
         // 1. Mengambil nama tamu dari link URL (contoh: ?to=Budi)
@@ -219,10 +217,11 @@
             // Menampilkan halaman konten utama dengan animasi fade in
             document.getElementById('main-content').style.display = 'flex';
             
-            // Menyisipkan Iframe YouTube yang tersembunyi
-            // ID YouTube lu: 06-XXOTP3Gc
-            const ytContainer = document.getElementById('youtube-audio');
-            ytContainer.innerHTML = '<iframe width="0" height="0" src="https://www.youtube.com/embed/06-XXOTP3Gc?autoplay=1&loop=1&playlist=06-XXOTP3Gc" frameborder="0" allow="autoplay"></iframe>';
+            // Memulai pemutaran musik (Browser butuh klik user biar bisa play)
+            let music = document.getElementById('bg-music');
+            music.play().catch(error => {
+                console.log("Musik tidak bisa diputar otomatis:", error);
+            });
             
             // Otomatis scroll ke paling atas biar halamannya rapi
             window.scrollTo(0, 0);
