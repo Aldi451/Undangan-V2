@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Rifaldi</title>
     
-    <!-- Import Google Fonts biar lebih elegan -->
+    <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
@@ -13,8 +13,8 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Lora', serif; /* Font utama yang enak dibaca */
-            background-color: #ffffff; /* Tema Putih */
+            font-family: 'Lora', serif;
+            background-color: #ffffff;
             color: #333333;
             text-align: center;
             overflow-x: hidden;
@@ -24,7 +24,7 @@
         .batik-ornament {
             width: 100%;
             height: 80px;
-            background-image: url('batik.png'); /* Nanti ganti dengan nama file gambar batik lu (.png/.svg) */
+            background-image: url('batik.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -43,14 +43,14 @@
         }
         
         .content {
-            display: none; /* Disembunyikan sebelum tombol ditekan */
+            display: none;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         /* Tipografi */
         h1, h2 {
-            font-family: 'Dancing Script', cursive; /* Font latin elegan */
-            color: #8b5a2b; /* Warna coklat tua nyambung sama batik */
+            font-family: 'Dancing Script', cursive;
+            color: #8b5a2b;
             margin: 10px 0;
         }
         h1 { font-size: 48px; }
@@ -96,7 +96,7 @@
             color: #666;
         }
         
-        /* Kotak Jadwal Acara */
+        /* Kotak Fitur (Jadwal, Countdown, Amplop, RSVP) */
         .jadwal-acara {
             background-color: #fafafa;
             border: 1px solid #eaeaea;
@@ -106,6 +106,7 @@
             max-width: 450px;
             margin: 20px 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-sizing: border-box;
         }
         .jadwal-acara h3 {
             font-family: 'Lora', serif;
@@ -126,7 +127,6 @@
 <body>
 
     <!-- Audio Musik Pernikahan -->
-    <!-- Ganti 'lagu-pernikahan.mp3' dengan nama file lagu lu yang ada di folder yang sama -->
     <audio id="bg-music" loop>
         <source src="lagu-pernikahan.mp3" type="audio/mpeg">
     </audio>
@@ -170,7 +170,7 @@
 
         <div class="batik-ornament"></div>
 
-        <!-- Bagian Jadwal Acara -->
+        <!-- 1. Bagian Jadwal Acara -->
         <div class="jadwal-acara">
             <h3>Akad Nikah</h3>
             <p><strong>Sabtu, 10 Oktober 2026</strong><br>Pukul 08.00 WIB - Selesai</p>
@@ -182,9 +182,40 @@
             <p><strong>Sabtu, 10 Oktober 2026</strong><br>Pukul 11.00 WIB - 14.00 WIB</p>
             <p><strong>Lokasi:</strong><br>Gedung Pernikahan / Tempat Resepsi</p>
             
-            <!-- Ganti link Google Maps di bawah ini -->
             <a href="https://maps.google.com/" target="_blank" style="text-decoration: none;">
                 <button style="width: 100%; border-radius: 8px;">Buka Google Maps</button>
+            </a>
+        </div>
+
+        <!-- 2. Bagian Hitung Mundur (Countdown) -->
+        <div class="jadwal-acara" style="margin-top: 10px;">
+            <h3>Menuju Hari Bahagia</h3>
+            <div id="countdown" style="display: flex; justify-content: space-around; font-weight: bold; font-size: 18px; color: #8b5a2b; margin-top: 15px;">
+                <div><span id="hari">00</span><br><span style="font-size: 12px; font-weight: normal;">Hari</span></div>
+                <div><span id="jam">00</span><br><span style="font-size: 12px; font-weight: normal;">Jam</span></div>
+                <div><span id="menit">00</span><br><span style="font-size: 12px; font-weight: normal;">Menit</span></div>
+                <div><span id="detik">00</span><br><span style="font-size: 12px; font-weight: normal;">Detik</span></div>
+            </div>
+        </div>
+
+        <!-- 3. Bagian Amplop Digital (Wedding Gift) -->
+        <div class="jadwal-acara">
+            <h3>Wedding Gift</h3>
+            <p style="font-size: 14px;">Bagi keluarga dan sahabat yang ingin memberikan tanda kasih, dapat mengirimkan melalui:</p>
+            
+            <div style="background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;">
+                <strong>BCA - 1234567890</strong><br>
+                <span style="font-size: 14px;">a.n Rifaldi Hidayat</span><br>
+                <button style="padding: 8px 15px; font-size: 14px; margin-top: 10px; border-radius: 5px;" onclick="copyRekening()">Copy Rekening</button>
+            </div>
+        </div>
+
+        <!-- 4. Bagian RSVP WhatsApp -->
+        <div class="jadwal-acara">
+            <h3>RSVP</h3>
+            <p style="font-size: 14px;">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui tombol di bawah ini:</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Rifaldi,%20saya%20konfirmasi%20akan%20HADIR%20di%20acara%20pernikahannya." target="_blank" style="text-decoration: none;">
+                <button style="background-color: #25D366; width: 100%; border-radius: 8px;">Konfirmasi Kehadiran</button>
             </a>
         </div>
 
@@ -198,34 +229,57 @@
 
     <!-- SCRIPT JAVASCRIPT -->
     <script>
-        // 1. Mengambil nama tamu dari link URL (contoh: ?to=Budi)
+        // --- 1. SCRIPT NAMA TAMU & BUKA UNDANGAN ---
         const urlParams = new URLSearchParams(window.location.search);
         let namaTamu = urlParams.get('to');
 
-        // 2. Jika link dibuka tanpa nama, set default ke "Tamu Undangan"
         if (!namaTamu) {
             namaTamu = "Tamu Undangan";
         }
 
-        // 3. Tampilkan nama tamu tersebut ke dalam HTML
         document.getElementById('nama-tamu-cover').innerText = namaTamu;
 
-        // 4. Fungsi ketika tombol "Buka Undangan" diklik
         function bukaUndangan() {
-            // Menghilangkan halaman cover
             document.getElementById('cover-page').style.display = 'none';
-            // Menampilkan halaman konten utama dengan animasi fade in
             document.getElementById('main-content').style.display = 'flex';
             
-            // Memulai pemutaran musik (Browser butuh klik user biar bisa play)
             let music = document.getElementById('bg-music');
             music.play().catch(error => {
                 console.log("Musik tidak bisa diputar otomatis:", error);
             });
             
-            // Otomatis scroll ke paling atas biar halamannya rapi
             window.scrollTo(0, 0);
         }
+
+        // --- 2. SCRIPT COPY REKENING ---
+        function copyRekening() {
+            navigator.clipboard.writeText("1234567890"); // Ganti nomor ini sesuai rekening lu
+            alert("Nomor rekening berhasil disalin!");
+        }
+
+        // --- 3. SCRIPT COUNTDOWN ---
+        // Ganti tanggal di bawah dengan tanggal pernikahan lu (Bulan Tanggal, Tahun Jam:Menit:Detik)
+        const tanggalAcara = new Date("Oct 10, 2026 08:00:00").getTime();
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = tanggalAcara - sekarang;
+
+            const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+            const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+            const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+            document.getElementById("hari").innerHTML = hari;
+            document.getElementById("jam").innerHTML = jam;
+            document.getElementById("menit").innerHTML = menit;
+            document.getElementById("detik").innerHTML = detik;
+
+            if (selisih < 0) {
+                clearInterval(hitungMundur);
+                document.getElementById("countdown").innerHTML = "ACARA SEDANG BERLANGSUNG";
+            }
+        }, 1000);
     </script>
 </body>
 </html>
