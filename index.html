@@ -14,8 +14,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Lora', serif;
-            background-color: #ffffff;
-            color: #333333;
+            background-color: #fdfbf7; /* Krem sangat muda agar lebih elegan */
+            color: #4a4a4a;
             text-align: center;
             overflow-x: hidden;
         }
@@ -23,12 +23,13 @@
         /* Ornamen Batik */
         .batik-ornament {
             width: 100%;
-            height: 80px;
+            height: 60px;
             background-image: url('batik.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            margin: 30px 0;
+            margin: 40px 0;
+            opacity: 0.8; /* Sedikit transparan agar menyatu */
         }
 
         /* Layout Halaman */
@@ -38,7 +39,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px 20px;
             box-sizing: border-box;
         }
         
@@ -47,75 +48,80 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Tipografi */
-        h1, h2 {
+        /* Tipografi & Gradien Mewah */
+        h1, h2, .mempelai h3 {
             font-family: 'Dancing Script', cursive;
-            color: #8b5a2b;
+            background: linear-gradient(135deg, #8b5a2b 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 10px 0;
         }
-        h1 { font-size: 48px; }
-        h2 { font-size: 36px; }
-        p { font-size: 16px; line-height: 1.6; margin: 10px 0; }
+        h1 { font-size: 52px; text-shadow: 2px 2px 4px rgba(0,0,0,0.05); }
+        h2 { font-size: 38px; }
+        .mempelai h3 { font-size: 42px; margin: 10px 0; }
         
-        /* Tombol */
+        p { font-size: 15px; line-height: 1.7; margin: 10px 0; color: #555; }
+        
+        /* Nama Tamu di Cover */
+        .guest-name {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #8b5a2b;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        
+        /* Tombol Modern */
         button {
-            background-color: #8b5a2b;
+            background: linear-gradient(135deg, #8b5a2b 0%, #a06b35 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 30px;
             font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 25px;
-            margin-top: 20px;
+            border-radius: 30px;
+            margin-top: 25px;
             font-family: 'Lora', serif;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(139, 90, 43, 0.2);
         }
-        button:hover { background-color: #6b4421; }
-        
-        /* Nama Tamu */
-        .guest-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 15px 0;
-            color: #8b5a2b;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 5px;
-            display: inline-block;
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(139, 90, 43, 0.3);
+            background: linear-gradient(135deg, #a06b35 0%, #8b5a2b 100%);
         }
         
-        /* Bagian Mempelai */
-        .mempelai h3 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 40px;
-            margin: 5px 0;
-            color: #333333;
-        }
-        .mempelai p {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        /* Kotak Fitur (Jadwal, Countdown, Amplop, RSVP) */
+        /* Kotak Fitur (Jadwal, Countdown, Amplop, RSVP) ala Card */
         .jadwal-acara {
-            background-color: #fafafa;
-            border: 1px solid #eaeaea;
-            padding: 30px 20px;
-            border-radius: 15px;
+            background-color: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 35px 25px;
+            border-radius: 20px;
             width: 100%;
-            max-width: 450px;
+            max-width: 420px;
             margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             box-sizing: border-box;
+            position: relative;
         }
+        
         .jadwal-acara h3 {
             font-family: 'Lora', serif;
-            font-size: 22px;
+            font-size: 20px;
             color: #8b5a2b;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            border-bottom: 1px dashed #e0d5c1;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+
+        /* Ikon Teks */
+        .icon-text { font-size: 24px; margin-bottom: 5px; display: block; }
 
         /* Animasi Transisi */
         @keyframes fadeIn {
@@ -133,7 +139,7 @@
 
     <!-- HALAMAN COVER DEPAN -->
     <div class="cover" id="cover-page">
-        <p>The Wedding Of</p>
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 14px;">The Wedding Of</p>
         <h1>Ferdi & [Nama Pasangan]</h1>
         
         <div class="batik-ornament"></div>
@@ -141,19 +147,18 @@
         <p>Kepada Yth. Bapak/Ibu/Saudara/i,</p>
         <div class="guest-name" id="nama-tamu-cover">Tamu Undangan</div>
         
-        <p style="font-size: 14px; color: #666; max-width: 300px; margin-top: 15px;">
+        <p style="font-size: 14px; max-width: 320px; margin-top: 15px; font-style: italic;">
             Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di momen spesial kami.
         </p>
         
-        <button onclick="bukaUndangan()">Buka Undangan</button>
+        <button onclick="bukaUndangan()">✨ Buka Undangan</button>
     </div>
 
     <!-- HALAMAN KONTEN UTAMA -->
     <div class="content" id="main-content">
-        <div class="batik-ornament"></div>
         
-        <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-        <p style="max-width: 500px; margin-bottom: 30px;">
+        <p style="font-weight: 600;">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <p style="max-width: 500px; margin-bottom: 40px;">
             Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
         </p>
         
@@ -162,7 +167,7 @@
             <h3>Ferdi Aditya Putra</h3>
             <p>Putra dari Bapak Edi Junaedi & Ibu Parida</p>
             
-            <h2 style="color: #8b5a2b; margin: 20px 0;">&</h2>
+            <h2 style="font-size: 50px; color: #d4af37; margin: 15px 0;">&</h2>
             
             <h3>[Nama Pasangan]</h3>
             <p>Putri dari Bapak [Nama Bapak] & Ibu [Nama Ibu]</p>
@@ -172,57 +177,62 @@
 
         <!-- 1. Bagian Jadwal Acara -->
         <div class="jadwal-acara">
+            <span class="icon-text">💍</span>
             <h3>Akad Nikah</h3>
             <p><strong>Jum'at, 25 Agustus 2028</strong><br>Pukul 11.00 WIB - Selesai</p>
             <p><strong>Lokasi:</strong><br>Masjid / Tempat Akad</p>
             
-            <br>
+            <div style="height: 1px; background: #eaeaea; margin: 20px 0;"></div>
             
+            <span class="icon-text">🥂</span>
             <h3>Resepsi Pernikahan</h3>
             <p><strong>Jum'at, 25 Agustus 2028</strong><br>Pukul 12.00 WIB - 14.00 WIB</p>
             <p><strong>Lokasi:</strong><br>Gedung Pernikahan / Tempat Resepsi</p>
             
             <a href="https://maps.google.com/" target="_blank" style="text-decoration: none;">
-                <button style="width: 100%; border-radius: 8px;">Buka Google Maps</button>
+                <button style="width: 100%; border-radius: 12px; margin-top: 15px;">📍 Buka Google Maps</button>
             </a>
         </div>
 
         <!-- 2. Bagian Hitung Mundur (Countdown) -->
-        <div class="jadwal-acara" style="margin-top: 10px;">
+        <div class="jadwal-acara">
+            <span class="icon-text">⏳</span>
             <h3>Menuju Hari Bahagia</h3>
-            <div id="countdown" style="display: flex; justify-content: space-around; font-weight: bold; font-size: 18px; color: #8b5a2b; margin-top: 15px;">
-                <div><span id="hari">00</span><br><span style="font-size: 12px; font-weight: normal;">Hari</span></div>
-                <div><span id="jam">00</span><br><span style="font-size: 12px; font-weight: normal;">Jam</span></div>
-                <div><span id="menit">00</span><br><span style="font-size: 12px; font-weight: normal;">Menit</span></div>
-                <div><span id="detik">00</span><br><span style="font-size: 12px; font-weight: normal;">Detik</span></div>
+            <div id="countdown" style="display: flex; justify-content: space-around; font-weight: bold; font-size: 22px; color: #8b5a2b; margin-top: 20px;">
+                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="hari">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Hari</span></div>
+                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="jam">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Jam</span></div>
+                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="menit">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Menit</span></div>
+                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="detik">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Detik</span></div>
             </div>
         </div>
 
         <!-- 3. Bagian Amplop Digital (Wedding Gift) -->
         <div class="jadwal-acara">
+            <span class="icon-text">🎁</span>
             <h3>Wedding Gift</h3>
             <p style="font-size: 14px;">Bagi keluarga dan sahabat yang ingin memberikan tanda kasih, dapat mengirimkan melalui:</p>
             
-            <div style="background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 8px; margin-top: 10px;">
-                <strong>BCA - 1234567890</strong><br>
-                <span style="font-size: 14px;">a.n Rifaldi Hidayat</span><br>
-                <button style="padding: 8px 15px; font-size: 14px; margin-top: 10px; border-radius: 5px;" onclick="copyRekening()">Copy Rekening</button>
+            <div style="background: #fdfbf7; padding: 20px; border: 1px dashed #d4af37; border-radius: 12px; margin-top: 20px;">
+                <strong style="font-size: 18px; color: #333;">BCA - 1234567890</strong><br>
+                <span style="font-size: 14px; color: #666;">a.n Ferdi Aditya Putra</span><br>
+                <button style="padding: 10px 20px; font-size: 13px; margin-top: 15px; border-radius: 8px; width: auto;" onclick="copyRekening()">📋 Copy Rekening</button>
             </div>
         </div>
 
         <!-- 4. Bagian RSVP WhatsApp -->
         <div class="jadwal-acara">
+            <span class="icon-text">✉️</span>
             <h3>RSVP</h3>
             <p style="font-size: 14px;">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui tombol di bawah ini:</p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Rifaldi,%20saya%20konfirmasi%20akan%20HADIR%20di%20acara%20pernikahannya." target="_blank" style="text-decoration: none;">
-                <button style="background-color: #25D366; width: 100%; border-radius: 8px;">Konfirmasi Kehadiran</button>
+            <a href="https://wa.me/6281234567890?text=Halo%20Ferdi,%20saya%20konfirmasi%20akan%20HADIR%20di%20acara%20pernikahannya." target="_blank" style="text-decoration: none;">
+                <button style="background: #25D366; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2); width: 100%; border-radius: 12px; margin-top: 10px;">💬 Konfirmasi via WhatsApp</button>
             </a>
         </div>
 
-        <p style="max-width: 500px; margin-top: 30px;">
+        <p style="max-width: 500px; margin-top: 40px; font-style: italic;">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
         </p>
-        <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <p style="font-weight: 600;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
 
         <div class="batik-ornament"></div>
     </div>
@@ -248,17 +258,16 @@
                 console.log("Musik tidak bisa diputar otomatis:", error);
             });
             
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // --- 2. SCRIPT COPY REKENING ---
         function copyRekening() {
-            navigator.clipboard.writeText("1234567890"); // Ganti nomor ini sesuai rekening lu
-            alert("Nomor rekening berhasil disalin!");
+            navigator.clipboard.writeText("1234567890"); 
+            alert("Nomor rekening BCA berhasil disalin!");
         }
 
         // --- 3. SCRIPT COUNTDOWN ---
-        // Ganti tanggal di bawah dengan tanggal pernikahan lu (Bulan Tanggal, Tahun Jam:Menit:Detik)
         const tanggalAcara = new Date("Aug 25, 2028 10:00:00").getTime();
 
         const hitungMundur = setInterval(function() {
