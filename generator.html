@@ -3,46 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator Link Tamu</title>
+    <title>Generator Undangan</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; }
-        input, button { padding: 10px; width: 100%; margin-bottom: 15px; box-sizing: border-box; }
-        textarea { width: 100%; height: 100px; padding: 10px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 { text-align: center; color: #333; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; color: #555; }
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+        }
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #8b5a2b; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+        button:hover { background-color: #6b4421; }
+        
+        .history { margin-top: 30px; }
+        .history-item { 
+            background: #f1f1f1; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .copy-btn {
+            background-color: #4CAF50;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-top: 10px;
+            width: auto;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Buat Link Undangan Tamu</h2>
-    
-    <label>URL Website Undangan Lu (Contoh: https://undangan-gw.com/):</label>
-    <input type="text" id="baseUrl" value="http://localhost/undangan/">
+    <div class="container">
+        <h2>Buat Link Undangan</h2>
+        
+        <label>Nama Tamu Undangan:</label>
+        <input type="text" id="namaTamu" placeholder="Contoh: Budi Santoso & Keluarga">
 
-    <label>Nama Tamu:</label>
-    <input type="text" id="namaTamu" placeholder="Contoh: Budi Santoso & Partner">
+        <button onclick="buatLink()">Generate Link</button>
 
-    <button onclick="buatLink()">Generate Link WhatsApp</button>
-
-    <label>Hasil Link (Copy lalu kirim):</label>
-    <textarea id="hasilLink" readonly></textarea>
+        <div class="history" id="daftarLink">
+            <!-- Hasil link yang digenerate akan muncul di sini -->
+        </div>
+    </div>
 
     <script>
         function buatLink() {
-            const baseUrl = document.getElementById('baseUrl').value;
             const nama = document.getElementById('namaTamu').value;
             
             if(!nama) {
-                alert('Isi nama tamu dulu!');
+                alert('Isi nama tamu dulu Bang!');
                 return;
             }
 
-            // Encode karakter spesial (spasi jadi %20, dll)
+            // OTOMATIS mengambil URL saat ini dan membuang kata "generator.html"
+            // Jadi mau di-hosting di mana aja (GitHub, localhost), bakal otomatis nyesuaiin
+            let currentPath = window.location.href.split('?')[0];
+            let baseUrl = currentPath.replace('generator.html', '');
+
+            // Encode nama agar aman di URL (spasi jadi %20)
             const namaEncoded = encodeURIComponent(nama);
             const linkLengkap = baseUrl + "?to=" + namaEncoded;
             
-            // Template kalimat buat dikirim ke WA
+            // Format pesan WhatsApp
             const pesanWA = `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i ${nama} untuk hadir di acara pernikahan kami.\n\nDetail undangan dapat diakses melalui link berikut:\n${linkLengkap}\n\nTerima kasih.`;
             
-            document.getElementById('hasilLink').value = pesanWA;
+            // Tampilkan ke layar (menambah daftar ke bawah, tidak menghapus yang lama)
+            const historyContainer = document.getElementById('daftarLink');
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'history-item';
+            
+            // Membuat elemen teks untuk pesan
+            const textArea = document.createElement('textarea');
+            textArea.value = pesanWA;
+            textArea.style.width = '100%';
+            textArea.style.height = '100px';
+            textArea.style.boxSizing = 'border-box';
+            textArea.setAttribute('readonly', true);
+            
+            // Tombol copy
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-btn';
+            copyBtn.innerText = 'Copy Pesan';
+            copyBtn.onclick = function() {
+                textArea.select();
+                document.execCommand('copy');
+                copyBtn.innerText = 'Tercopy!';
+                copyBtn.style.backgroundColor = '#555';
+                setTimeout(() => { 
+                    copyBtn.innerText = 'Copy Pesan'; 
+                    copyBtn.style.backgroundColor = '#4CAF50';
+                }, 2000);
+            };
+
+            // Masukkan ke dalam div dan tampilkan di layar
+            itemDiv.innerHTML = `<strong>Tamu: ${nama}</strong><br><br>`;
+            itemDiv.appendChild(textArea);
+            itemDiv.appendChild(copyBtn);
+            
+            // Tambahkan di urutan paling atas
+            historyContainer.prepend(itemDiv);
+
+            // Kosongkan input biar siap isi nama selanjutnya
+            document.getElementById('namaTamu').value = '';
         }
     </script>
 </body>
