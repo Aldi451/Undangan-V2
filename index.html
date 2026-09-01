@@ -95,8 +95,8 @@
             background: linear-gradient(135deg, #a06b35 0%, #8b5a2b 100%);
         }
         
-        /* Kotak Fitur (Jadwal, Countdown, Amplop, RSVP) ala Card */
-        .jadwal-acara {
+        /* Kotak Fitur (Jadwal, Countdown, Amplop, RSVP, Story, Gallery) */
+        .jadwal-acara, .galeri-prewed, .story-container {
             background-color: #ffffff;
             border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 35px 25px;
@@ -109,7 +109,7 @@
             position: relative;
         }
         
-        .jadwal-acara h3 {
+        .jadwal-acara h3, .galeri-prewed h3, .story-container h3 {
             font-family: 'Lora', serif;
             font-size: 20px;
             color: #8b5a2b;
@@ -122,6 +122,89 @@
 
         /* Ikon Teks */
         .icon-text { font-size: 24px; margin-bottom: 5px; display: block; }
+
+        /* Foto Profil Mempelai */
+        .foto-mempelai {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4af37;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        /* Galeri Prewedding */
+        .foto-prewed {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Efek Bunga Gugur */
+        .petal {
+            position: fixed;
+            top: -10px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #f7e6d2 0%, #d4af37 100%);
+            border-radius: 50% 0 50% 50%;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            to { 
+                transform: translateY(105vh) rotate(720deg); 
+                opacity: 0;
+            }
+        }
+
+        /* Kisah Cinta (Timeline) */
+        .story-container {
+            text-align: left;
+        }
+        .timeline-item {
+            border-left: 2px solid #d4af37;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+        }
+        .story-date {
+            font-size: 13px;
+            color: #8b5a2b;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .story-title {
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+        .story-text {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
 
         /* Animasi Transisi */
         @keyframes fadeIn {
@@ -164,16 +247,55 @@
         
         <!-- Bagian Mempelai -->
         <div class="mempelai">
+            <img src="foto-pria.jpg" alt="Ferdi" class="foto-mempelai">
             <h3>Ferdi Aditya Putra</h3>
             <p>Putra dari Bapak Edi Junaedi & Ibu Parida</p>
             
             <h2 style="font-size: 50px; color: #d4af37; margin: 15px 0;">&</h2>
             
+            <img src="foto-wanita.jpg" alt="Mempelai Wanita" class="foto-mempelai">
             <h3>[Nama Pasangan]</h3>
             <p>Putri dari Bapak [Nama Bapak] & Ibu [Nama Ibu]</p>
         </div>
 
         <div class="batik-ornament"></div>
+
+        <!-- Bagian Kisah Cinta (Love Story) -->
+        <div class="story-container">
+            <div style="text-align: center;">
+                <span class="icon-text">📖</span>
+                <h3>Our Story</h3>
+            </div>
+
+            <div class="timeline-item">
+                <span class="story-date">Januari 2021</span>
+                <h4 class="story-title">Awal Bertemu</h4>
+                <p class="story-text">Kami pertama kali bertemu di sebuah acara teman. Saling menyapa canggung, namun obrolan berlanjut tak terduga.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="story-date">Maret 2023</span>
+                <h4 class="story-title">Menyatakan Cinta</h4>
+                <p class="story-text">Setelah lama saling mengenal, akhirnya kami memutuskan untuk melangkah bersama dan berkomitmen lebih serius.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="story-date">Desember 2027</span>
+                <h4 class="story-title">Lamaran</h4>
+                <p class="story-text">Momen mendebarkan saat kedua keluarga besar bertemu. Cincin terpasang, mengikat janji untuk selamanya.</p>
+            </div>
+        </div>
+
+        <!-- Bagian Galeri Prewedding -->
+        <div class="galeri-prewed">
+            <span class="icon-text">📸</span>
+            <h3>Our Moments</h3>
+            
+            <img src="prewed1.jpg" alt="Prewedding 1" class="foto-prewed">
+            <img src="prewed2.jpg" alt="Prewedding 2" class="foto-prewed">
+            
+            <p style="font-style: italic; font-size: 14px; margin-top: 10px;">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</p>
+        </div>
 
         <!-- 1. Bagian Jadwal Acara -->
         <div class="jadwal-acara">
@@ -202,6 +324,7 @@
                 <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="hari">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Hari</span></div>
                 <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="jam">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Jam</span></div>
                 <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="menit">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Menit</span></div>
+                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="detik">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Detik</span></div>
             </div>
         </div>
 
@@ -258,6 +381,9 @@
             });
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Memicu animasi bunga jatuh saat undangan dibuka
+            mulaiBungaGugur();
         }
 
         // --- 2. SCRIPT COPY REKENING ---
@@ -288,6 +414,25 @@
                 document.getElementById("countdown").innerHTML = "ACARA SEDANG BERLANGSUNG";
             }
         }, 1000);
+
+        // --- 4. SCRIPT BUNGA GUGUR ---
+        function mulaiBungaGugur() {
+            setInterval(function() {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // Posisi jatuh acak dari kiri ke kanan (0 sampai 100vw)
+                petal.style.left = Math.random() * 100 + 'vw';
+                
+                // Durasi jatuh acak biar natural (3 sampai 7 detik)
+                petal.style.animationDuration = Math.random() * 4 + 3 + 's';
+                
+                document.body.appendChild(petal);
+                
+                // Hapus elemen setelah 7 detik biar memori HP nggak penuh
+                setTimeout(() => { petal.remove(); }, 7000);
+            }, 400); // Bunga baru muncul setiap 0.4 detik
+        }
     </script>
 </body>
 </html>
