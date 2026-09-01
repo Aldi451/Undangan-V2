@@ -14,22 +14,23 @@
             margin: 0;
             padding: 0;
             font-family: 'Lora', serif;
-            background-color: #fdfbf7; /* Krem sangat muda agar lebih elegan */
+            background-color: #fdfbf7;
             color: #4a4a4a;
             text-align: center;
             overflow-x: hidden;
         }
 
-        /* Ornamen Batik */
+        /* Ornamen Batik menggunakan Link Eksternal PNG */
         .batik-ornament {
             width: 100%;
-            height: 60px;
-            background-image: url('batik.png');
-            background-size: contain;
+            height: 70px;
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop'); /* Ilustrasi link batik */
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            margin: 40px 0;
-            opacity: 0.8; /* Sedikit transparan agar menyatu */
+            margin: 30px 0;
+            opacity: 0.15; /* Dibuat transparan estetik agar teks tetap sangat mudah dibaca */
+            filter: sepia(100%) hue-rotate(5deg); /* Menyesuaikan nuansa warna emas/coklat */
         }
 
         /* Layout Halaman */
@@ -156,25 +157,18 @@
             opacity: 0.7;
         }
         @keyframes fall {
-            to { 
-                transform: translateY(105vh) rotate(720deg); 
-                opacity: 0;
-            }
+            to { transform: translateY(105vh) rotate(720deg); opacity: 0; }
         }
 
         /* Kisah Cinta (Timeline) */
-        .story-container {
-            text-align: left;
-        }
+        .story-container { text-align: left; }
         .timeline-item {
             border-left: 2px solid #d4af37;
             padding-left: 20px;
             position: relative;
             margin-bottom: 25px;
         }
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
+        .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -186,25 +180,9 @@
             border: 2px solid #d4af37;
             border-radius: 50%;
         }
-        .story-date {
-            font-size: 13px;
-            color: #8b5a2b;
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-        .story-title {
-            font-family: 'Lora', serif;
-            font-size: 18px;
-            color: #333;
-            margin: 0 0 5px 0;
-        }
-        .story-text {
-            font-size: 14px;
-            color: #666;
-            margin: 0;
-            line-height: 1.5;
-        }
+        .story-date { font-size: 13px; color: #8b5a2b; font-weight: bold; margin-bottom: 5px; display: block; }
+        .story-title { font-family: 'Lora', serif; font-size: 18px; color: #333; margin: 0 0 5px 0; }
+        .story-text { font-size: 14px; color: #666; margin: 0; line-height: 1.5; }
 
         /* Animasi Transisi */
         @keyframes fadeIn {
@@ -316,15 +294,23 @@
             </a>
         </div>
 
-        <!-- 2. Bagian Hitung Mundur (Countdown) -->
+        <!-- 2. Bagian Hitung Mundur (Countdown) - Aman & Rapi di HP (Tanpa Detik) -->
         <div class="jadwal-acara">
             <span class="icon-text">⏳</span>
             <h3>Menuju Hari Bahagia</h3>
-            <div id="countdown" style="display: flex; justify-content: space-around; font-weight: bold; font-size: 22px; color: #8b5a2b; margin-top: 20px;">
-                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="hari">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Hari</span></div>
-                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="jam">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Jam</span></div>
-                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="menit">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Menit</span></div>
-                <div style="background: #fdfbf7; padding: 10px; border-radius: 10px; min-width: 60px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);"><span id="detik">00</span><br><span style="font-size: 12px; font-weight: normal; color: #888;">Detik</span></div>
+            <div id="countdown" style="display: flex; gap: 10px; justify-content: center; font-weight: bold; font-size: 26px; color: #8b5a2b; margin-top: 20px;">
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="hari">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Hari</span>
+                </div>
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="jam">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Jam</span>
+                </div>
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="menit">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Menit</span>
+                </div>
             </div>
         </div>
 
@@ -392,7 +378,7 @@
             alert("Nomor rekening BCA berhasil disalin!");
         }
 
-        // --- 3. SCRIPT COUNTDOWN ---
+        // --- 3. SCRIPT COUNTDOWN (Tanpa Detik) ---
         const tanggalAcara = new Date("Aug 25, 2028 10:00").getTime();
 
         const hitungMundur = setInterval(function() {
@@ -402,16 +388,14 @@
             const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
             const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-            const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
             document.getElementById("hari").innerHTML = hari;
             document.getElementById("jam").innerHTML = jam;
             document.getElementById("menit").innerHTML = menit;
-            document.getElementById("detik").innerHTML = detik;
 
             if (selisih < 0) {
                 clearInterval(hitungMundur);
-                document.getElementById("countdown").innerHTML = "ACARA SEDANG BERLANGSUNG";
+                document.getElementById("countdown").innerHTML = "<div style='width: 100%; text-align: center;'>ACARA SEDANG BERLANGSUNG</div>";
             }
         }, 1000);
 
@@ -421,17 +405,13 @@
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
                 
-                // Posisi jatuh acak dari kiri ke kanan (0 sampai 100vw)
                 petal.style.left = Math.random() * 100 + 'vw';
-                
-                // Durasi jatuh acak biar natural (3 sampai 7 detik)
                 petal.style.animationDuration = Math.random() * 4 + 3 + 's';
                 
                 document.body.appendChild(petal);
                 
-                // Hapus elemen setelah 7 detik biar memori HP nggak penuh
                 setTimeout(() => { petal.remove(); }, 7000);
-            }, 400); // Bunga baru muncul setiap 0.4 detik
+            }, 400); 
         }
     </script>
 </body>
