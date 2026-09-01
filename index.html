@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Ferdi Aditya Putra</title>
 
@@ -28,7 +25,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -165,6 +162,7 @@
             font-size: clamp(3.2rem, 13vw, 5.6rem);
             line-height: 1.08;
             margin: 8px 0;
+            text-wrap: balance;
         }
         .cover-amp {
             font-family: 'Great Vibes', cursive;
@@ -325,68 +323,97 @@
             font-weight: 400;
             line-height: 1.1;
             margin: 6px 0 12px;
+            text-wrap: balance;
         }
 
         /* ============================================================
            BAGIAN MEMPELAI — Foto Lengkung (Arch) Elegan
            ============================================================ */
-        .couple {
+        .couple { max-width: 660px; margin: 0 auto; }
+
+        /* Baris foto: kedua foto bersebelahan dengan "&" selalu di tengah */
+        .couple-photos {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            gap: 26px;
-            flex-wrap: wrap;
+            gap: 4px;
         }
-        .person { flex: 1 1 220px; max-width: 300px; }
-        .person .photo-frame {
+        .photo-frame {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 240px;
             position: relative;
-            width: min(78vw, 240px);
-            height: 300px;
-            margin: 0 auto 20px;
-            border-radius: 120px 120px 6px 6px;
+            aspect-ratio: 4 / 5;
+            border-radius: 999px 999px 10px 10px;
             overflow: hidden;
             border: 2px solid var(--gold);
             padding: 8px;
             background: #fff;
             box-shadow: 0 22px 45px rgba(63,58,50,0.16);
         }
-        .person .photo-frame::after {
+        .photo-frame::after {
             content: '';
             position: absolute;
-            inset: 13px;
+            inset: 11px;
             border: 1px solid rgba(198,161,91,0.5);
-            border-radius: 108px 108px 4px 4px;
+            border-radius: 999px 999px 4px 4px;
             pointer-events: none;
         }
-        .person .photo-frame img {
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 112px 112px 4px 4px;
+            border-radius: 999px 999px 4px 4px;
             display: block;
             transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .person:hover .photo-frame img { transform: scale(1.06); }
+        .photo-frame:hover img { transform: scale(1.06); }
 
+        /* Medali "&" di tengah antara dua foto */
+        .couple-amp {
+            flex: 0 0 auto;
+            width: 58px;
+            height: 58px;
+            margin: 0 -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ivory);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 10px 24px rgba(63,58,50,0.16);
+            z-index: 3;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.1rem;
+            line-height: 1;
+            color: var(--gold);
+            padding-bottom: 6px;
+        }
+
+        /* Baris nama di bawah masing-masing foto */
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .person {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 240px;
+        }
         .person h3 {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
-            font-size: clamp(2rem, 6.5vw, 2.5rem);
+            font-size: clamp(1.7rem, 6vw, 2.5rem);
             line-height: 1.1;
             margin-bottom: 6px;
+            text-wrap: balance;
         }
         .person .parent {
             font-size: 15px;
             color: var(--muted);
             font-style: italic;
-        }
-
-        .couple-amp {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.6rem, 9vw, 3.4rem);
-            color: var(--gold);
-            align-self: center;
-            padding-top: 40px;
         }
 
         /* ============================================================
@@ -756,10 +783,29 @@
             .cover-corner.tr { top: 22px; right: 22px; }
             .cover-corner.bl { bottom: 22px; left: 22px; }
             .cover-corner.br { bottom: 22px; right: 22px; }
-            .couple { gap: 6px; }
-            .couple-amp { padding-top: 24px; flex-basis: 100%; order: 3; }
+            .couple-photos { gap: 2px; }
+            .couple-amp { width: 46px; height: 46px; font-size: 1.7rem; margin: 0 -8px; }
             .countdown { gap: 8px; }
-            .section { padding-left: 16px; padding-right: 16px; }
+            .section { padding: 48px 16px; }
+            /* Rapikan cover di layar sempit agar tidak meluber ke samping */
+            .cover-kicker { letter-spacing: 0.34em; font-size: 11px; }
+            .cover-date { letter-spacing: 0.34em; font-size: 12px; }
+            .cover-note { font-size: 14px; }
+            .btn-open { padding: 15px 34px; letter-spacing: 0.26em; }
+            .person .parent { font-size: 13px; }
+        }
+
+        /* HP pendek / orientasi landscape: padatkan cover agar muat tanpa scroll */
+        @media (max-height: 700px) {
+            .cover { padding-top: 20px; padding-bottom: 20px; }
+            .cover-content { padding: 14px 16px; }
+            .cover-kicker { margin-bottom: 10px; }
+            .cover-names { margin: 4px 0; }
+            .cover-date { margin-top: 12px; }
+            .cover-guest { margin-top: 16px; }
+            .btn-open { margin-top: 18px; }
+            .cover-note { margin-top: 12px; }
+            .scroll-hint { display: none; }
         }
     </style>
 </head>
@@ -835,22 +881,24 @@
             <h2 class="section-title gold-text">Dua Hati, Satu Janji</h2>
 
             <div class="couple">
-                <div class="person">
+                <div class="couple-photos">
                     <div class="photo-frame">
                         <img src="foto-pria.jpg" alt="Ferdi Aditya Putra">
                     </div>
-                    <h3 class="gold-text">Ferdi Aditya Putra</h3>
-                    <p class="parent">Putra dari Bapak Edi Junaedi<br>&amp; Ibu Parida</p>
-                </div>
-
-                <div class="couple-amp">&amp;</div>
-
-                <div class="person">
+                    <div class="couple-amp">&amp;</div>
                     <div class="photo-frame">
                         <img src="foto-wanita.jpg" alt="Mempelai Wanita">
                     </div>
-                    <h3 class="gold-text">[Nama Pasangan]</h3>
-                    <p class="parent">Putri dari Bapak [Nama Bapak]<br>&amp; Ibu [Nama Ibu]</p>
+                </div>
+                <div class="couple-names">
+                    <div class="person">
+                        <h3 class="gold-text">Ferdi Aditya Putra</h3>
+                        <p class="parent">Putra dari Bapak Edi Junaedi<br>&amp; Ibu Parida</p>
+                    </div>
+                    <div class="person">
+                        <h3 class="gold-text">[Nama Pasangan]</h3>
+                        <p class="parent">Putri dari Bapak [Nama Bapak]<br>&amp; Ibu [Nama Ibu]</p>
+                    </div>
                 </div>
             </div>
         </section>
