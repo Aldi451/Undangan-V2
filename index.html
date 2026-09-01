@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Ferdi Aditya Putra</title>
+    
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
 
     <!-- Import Google Fonts: Elegan & Mewah -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* Pengaturan Dasar dengan Background Batik Halus */
         /* ============================================================
            VARIABEL WARNA & TIPOGRAFI — Palet Mewah Champagne & Ivory
            ============================================================ */
@@ -28,9 +31,16 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
         body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif;
+            /* Menggunakan pola batik asli berbentuk SVG sebagai background berulang yang elegan dan mewah */
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+            color: #4a4a4a;
             font-family: 'Cormorant Garamond', serif;
             background-color: var(--ivory);
             /* Tekstur linen sangat halus sebagai latar */
@@ -42,6 +52,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Ornamen Batik Pemisah Seksi (Motif Emas Tradisional) */
+        .batik-ornament {
+            width: 100%;
+            height: 50px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='30' viewBox='0 0 120 30'%3E%3Cpath fill='%23d4af37' d='M60 0L30 15L60 30L90 15L60 0zm0 5l20 10l-20 10l-20-10l20-10zm0 7a3 3 0 1 0 0 6a3 3 0 0 0 0-6zM15 7L0 15l15 8l15-8L15 7zm90 0l-15 8l15 8l15-8-15-8z' opacity='0.7'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-position: center;
+            margin: 35px 0;
         ::selection { background: var(--gold); color: #fff; }
 
         /* ============================================================
@@ -71,6 +89,9 @@
             background: linear-gradient(to left, transparent, var(--gold));
         }
 
+        /* Layout Halaman */
+        .cover, .content {
+            min-height: 100vh;
         .script { font-family: 'Great Vibes', cursive; }
 
         .gold-text {
@@ -86,6 +107,7 @@
             width: min(320px, 70%);
             margin: 0 auto;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 14px;
@@ -105,8 +127,13 @@
             justify-content: center;
             background: var(--ivory) url('cover-bg.jpg') center / cover no-repeat;
             padding: 30px 20px;
+            box-sizing: border-box;
             overflow: hidden;
         }
+        
+        .content {
+            display: none;
+            animation: fadeIn 1.5s ease-in-out;
         .cover-overlay {
             position: absolute;
             inset: 0;
@@ -139,6 +166,21 @@
         .cover-corner.bl { bottom: 34px; left: 34px; border-right: none; border-top: none; }
         .cover-corner.br { bottom: 34px; right: 34px; border-left: none; border-top: none; }
 
+        /* Tipografi & Gradien Mewah */
+        h1, h2, .mempelai h3 {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(135deg, #8b5a2b 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+        h1 { font-size: 52px; text-shadow: 2px 2px 4px rgba(0,0,0,0.05); }
+        h2 { font-size: 38px; }
+        .mempelai h3 { font-size: 42px; margin: 10px 0; }
+        
+        p { font-size: 15px; line-height: 1.7; margin: 10px 0; color: #555; }
+        
+        /* Nama Tamu di Cover */
         .cover-content {
             position: relative;
             z-index: 4;
@@ -165,6 +207,7 @@
             font-size: clamp(3.2rem, 13vw, 5.6rem);
             line-height: 1.08;
             margin: 8px 0;
+            text-wrap: balance;
         }
         .cover-amp {
             font-family: 'Great Vibes', cursive;
@@ -192,17 +235,32 @@
             color: var(--muted);
         }
         .guest-name {
+            font-size: 26px;
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1.5rem, 5vw, 1.9rem);
             font-weight: 600;
+            margin: 20px 0;
+            color: #8b5a2b;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
             font-style: italic;
             letter-spacing: 0.02em;
             color: var(--ink);
             display: inline-block;
+            letter-spacing: 1px;
             padding: 6px 22px 10px;
             margin-top: 8px;
             border-bottom: 1px solid var(--gold);
         }
+        
+        /* Tombol Modern */
+        button {
+            background: linear-gradient(135deg, #8b5a2b 0%, #a06b35 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 600;
 
         .btn-open {
             display: inline-flex;
@@ -219,11 +277,42 @@
             letter-spacing: 0.32em;
             text-transform: uppercase;
             cursor: pointer;
+            border-radius: 30px;
+            margin-top: 25px;
+            font-family: 'Lora', serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(139, 90, 43, 0.2);
+        }
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(139, 90, 43, 0.3);
+            background: linear-gradient(135deg, #a06b35 0%, #8b5a2b 100%);
+        }
+        
+        /* Kotak Fitur dengan Background Putih Solid agar Kontras dengan Batik Background */
+        .jadwal-acara, .galeri-prewed, .story-container {
+            background-color: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 35px 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            box-sizing: border-box;
             border-radius: 2px;
             transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
             overflow: hidden;
         }
+        
+        .jadwal-acara h3, .galeri-prewed h3, .story-container h3 {
+            font-family: 'Lora', serif;
+            font-size: 20px;
+            color: #8b5a2b;
+            border-bottom: 1px dashed #e0d5c1;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
         .btn-open::before {
             content: '';
             position: absolute;
@@ -258,6 +347,7 @@
             font-size: 9px;
             letter-spacing: 0.4em;
             text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--gold-dark);
             animation: floaty 2.4s ease-in-out infinite;
         }
@@ -274,6 +364,8 @@
             50%      { transform: translate(-50%, 8px); opacity: 1; }
         }
 
+        /* Ikon Teks */
+        .icon-text { font-size: 24px; margin-bottom: 5px; display: block; }
         /* ============================================================
            KONTEN UTAMA
            ============================================================ */
@@ -287,6 +379,15 @@
             to   { opacity: 1; }
         }
 
+        /* Foto Profil Mempelai */
+        .foto-mempelai {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4af37;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
         .section {
             padding: 60px 22px;
             max-width: 760px;
@@ -294,6 +395,12 @@
         }
         .section + .section { padding-top: 20px; }
 
+        /* Galeri Prewedding */
+        .foto-prewed {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         /* Animasi muncul saat scroll */
         .reveal {
             opacity: 0;
@@ -303,6 +410,15 @@
         }
         .reveal.revealed { opacity: 1; transform: none; }
 
+        /* Efek Bunga Gugur */
+        .petal {
+            position: fixed;
+            top: -10px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #f7e6d2 0%, #d4af37 100%);
+            border-radius: 50% 0 50% 50%;
+            z-index: 9999;
         /* ---- Salam pembuka ---- */
         .salam {
             font-size: clamp(1.6rem, 5.5vw, 2.1rem);
@@ -325,68 +441,103 @@
             font-weight: 400;
             line-height: 1.1;
             margin: 6px 0 12px;
+            text-wrap: balance;
         }
 
         /* ============================================================
            BAGIAN MEMPELAI — Foto Lengkung (Arch) Elegan
            ============================================================ */
-        .couple {
+        .couple { max-width: 660px; margin: 0 auto; }
+
+        /* Baris foto: kedua foto bersebelahan dengan "&" selalu di tengah */
+        .couple-photos {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            gap: 26px;
-            flex-wrap: wrap;
+            gap: 4px;
         }
-        .person { flex: 1 1 220px; max-width: 300px; }
-        .person .photo-frame {
+        .photo-frame {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 240px;
             position: relative;
-            width: min(78vw, 240px);
-            height: 300px;
-            margin: 0 auto 20px;
-            border-radius: 120px 120px 6px 6px;
+            aspect-ratio: 4 / 5;
+            border-radius: 999px 999px 10px 10px;
             overflow: hidden;
             border: 2px solid var(--gold);
             padding: 8px;
             background: #fff;
             box-shadow: 0 22px 45px rgba(63,58,50,0.16);
         }
-        .person .photo-frame::after {
+        .photo-frame::after {
             content: '';
             position: absolute;
-            inset: 13px;
+            inset: 11px;
             border: 1px solid rgba(198,161,91,0.5);
-            border-radius: 108px 108px 4px 4px;
+            border-radius: 999px 999px 4px 4px;
             pointer-events: none;
+            animation: fall linear;
+            opacity: 0.7;
         }
-        .person .photo-frame img {
+        @keyframes fall {
+            to { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 112px 112px 4px 4px;
+            border-radius: 999px 999px 4px 4px;
             display: block;
             transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .person:hover .photo-frame img { transform: scale(1.06); }
+        .photo-frame:hover img { transform: scale(1.06); }
 
+        /* Kisah Cinta (Timeline) */
+        .story-container { text-align: left; }
+        /* Medali "&" di tengah antara dua foto */
+        .couple-amp {
+            flex: 0 0 auto;
+            width: 58px;
+            height: 58px;
+            margin: 0 -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ivory);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 10px 24px rgba(63,58,50,0.16);
+            z-index: 3;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.1rem;
+            line-height: 1;
+            color: var(--gold);
+            padding-bottom: 6px;
+        }
+
+        /* Baris nama di bawah masing-masing foto */
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .person {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 240px;
+        }
         .person h3 {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
-            font-size: clamp(2rem, 6.5vw, 2.5rem);
+            font-size: clamp(1.7rem, 6vw, 2.5rem);
             line-height: 1.1;
             margin-bottom: 6px;
+            text-wrap: balance;
         }
         .person .parent {
             font-size: 15px;
             color: var(--muted);
             font-style: italic;
-        }
-
-        .couple-amp {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.6rem, 9vw, 3.4rem);
-            color: var(--gold);
-            align-self: center;
-            padding-top: 40px;
         }
 
         /* ============================================================
@@ -446,15 +597,25 @@
            ============================================================ */
         .story { text-align: left; max-width: 520px; margin: 0 auto; }
         .timeline-item {
+            border-left: 2px solid #d4af37;
+            padding-left: 20px;
             position: relative;
+            margin-bottom: 25px;
             padding: 0 0 34px 34px;
             border-left: 1px solid rgba(198,161,91,0.55);
             margin-left: 8px;
         }
+        .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item:last-child { padding-bottom: 0; }
         .timeline-item::before {
             content: '';
             position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border: 2px solid #d4af37;
             left: -6px;
             top: 2px;
             width: 11px; height: 11px;
@@ -463,6 +624,9 @@
             border-radius: 50%;
             box-shadow: 0 0 0 4px rgba(198,161,91,0.15);
         }
+        .story-date { font-size: 13px; color: #8b5a2b; font-weight: bold; margin-bottom: 5px; display: block; }
+        .story-title { font-family: 'Lora', serif; font-size: 18px; color: #333; margin: 0 0 5px 0; }
+        .story-text { font-size: 14px; color: #666; margin: 0; line-height: 1.5; }
         .story-date {
             font-family: 'Montserrat', sans-serif;
             font-size: 10px;
@@ -482,6 +646,10 @@
         }
         .story-text { font-size: 16px; color: var(--muted); }
 
+        /* Animasi Transisi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         /* ============================================================
            GALERI
            ============================================================ */
@@ -756,25 +924,61 @@
             .cover-corner.tr { top: 22px; right: 22px; }
             .cover-corner.bl { bottom: 22px; left: 22px; }
             .cover-corner.br { bottom: 22px; right: 22px; }
-            .couple { gap: 6px; }
-            .couple-amp { padding-top: 24px; flex-basis: 100%; order: 3; }
+            .couple-photos { gap: 2px; }
+            .couple-amp { width: 46px; height: 46px; font-size: 1.7rem; margin: 0 -8px; }
             .countdown { gap: 8px; }
-            .section { padding-left: 16px; padding-right: 16px; }
+            .section { padding: 48px 16px; }
+            /* Rapikan cover di layar sempit agar tidak meluber ke samping */
+            .cover-kicker { letter-spacing: 0.34em; font-size: 11px; }
+            .cover-date { letter-spacing: 0.34em; font-size: 12px; }
+            .cover-note { font-size: 14px; }
+            .btn-open { padding: 15px 34px; letter-spacing: 0.26em; }
+            .person .parent { font-size: 13px; }
+        }
+
+        /* HP pendek / orientasi landscape: padatkan cover agar muat tanpa scroll */
+        @media (max-height: 700px) {
+            .cover { padding-top: 20px; padding-bottom: 20px; }
+            .cover-content { padding: 14px 16px; }
+            .cover-kicker { margin-bottom: 10px; }
+            .cover-names { margin: 4px 0; }
+            .cover-date { margin-top: 12px; }
+            .cover-guest { margin-top: 16px; }
+            .btn-open { margin-top: 18px; }
+            .cover-note { margin-top: 12px; }
+            .scroll-hint { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Audio Musik Pernikahan -->
+    <audio id="bg-music" loop>
     <!-- ===================== AUDIO MUSIK ===================== -->
     <audio id="bg-music" loop preload="auto">
         <source src="lagu-pernikahan.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- HALAMAN COVER DEPAN -->
     <!-- Tombol musik melayang -->
     <button class="music-toggle" id="music-toggle" onclick="toggleMusic()" aria-label="Putar / Jeda Musik">🎵</button>
 
     <!-- ===================== HALAMAN COVER ===================== -->
     <div class="cover" id="cover-page">
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 14px;">The Wedding Of</p>
+        <h1>Ferdi & [Nama Pasangan]</h1>
+        
+        <div class="batik-ornament"></div>
+        
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i,</p>
+        <div class="guest-name" id="nama-tamu-cover">Tamu Undangan</div>
+        
+        <p style="font-size: 14px; max-width: 320px; margin-top: 15px; font-style: italic;">
+            Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di momen spesial kami.
+        </p>
+        
+        <button onclick="bukaUndangan()">✨ Buka Undangan</button>
+    </div>
         <div class="cover-overlay"></div>
         <div class="cover-frame"></div>
         <span class="cover-corner tl"></span>
@@ -789,6 +993,25 @@
             <div class="cover-amp">&amp;</div>
             <h1 class="cover-names gold-text">[Nama Pasangan]</h1>
 
+    <!-- HALAMAN KONTEN UTAMA -->
+    <div class="content" id="main-content">
+        
+        <p style="font-weight: 600;">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+        <p style="max-width: 500px; margin-bottom: 40px;">
+            Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+        </p>
+        
+        <!-- Bagian Mempelai -->
+        <div class="mempelai">
+            <img src="foto-pria.jpg" alt="Ferdi" class="foto-mempelai">
+            <h3>Ferdi Aditya Putra</h3>
+            <p>Putra dari Bapak Edi Junaedi & Ibu Parida</p>
+            
+            <h2 style="font-size: 50px; color: #d4af37; margin: 15px 0;">&</h2>
+            
+            <img src="foto-wanita.jpg" alt="Mempelai Wanita" class="foto-mempelai">
+            <h3>[Nama Pasangan]</h3>
+            <p>Putri dari Bapak [Nama Bapak] & Ibu [Nama Ibu]</p>
             <p class="cover-date">25 <span>.</span> 08 <span>.</span> 2028</p>
 
             <div class="cover-guest">
@@ -805,12 +1028,18 @@
             </p>
         </div>
 
+        <div class="batik-ornament"></div>
         <div class="scroll-hint">Scroll</div>
     </div>
 
     <!-- ===================== KONTEN UTAMA ===================== -->
     <main class="content" id="main-content">
 
+        <!-- Bagian Kisah Cinta (Love Story) -->
+        <div class="story-container">
+            <div style="text-align: center;">
+                <span class="icon-text">📖</span>
+                <h3>Our Story</h3>
         <!-- Salam Pembuka -->
         <section class="section reveal">
             <p class="salam">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
@@ -829,32 +1058,42 @@
             </div>
         </section>
 
+            <div class="timeline-item">
+                <span class="story-date">Januari 2021</span>
+                <h4 class="story-title">Awal Bertemu</h4>
+                <p class="story-text">Kami pertama kali bertemu di sebuah acara teman. Saling menyapa canggung, namun obrolan berlanjut tak terduga.</p>
         <!-- Mempelai -->
         <section class="section reveal">
             <div class="section-label">Bride &amp; Groom</div>
             <h2 class="section-title gold-text">Dua Hati, Satu Janji</h2>
 
             <div class="couple">
-                <div class="person">
+                <div class="couple-photos">
                     <div class="photo-frame">
                         <img src="foto-pria.jpg" alt="Ferdi Aditya Putra">
                     </div>
-                    <h3 class="gold-text">Ferdi Aditya Putra</h3>
-                    <p class="parent">Putra dari Bapak Edi Junaedi<br>&amp; Ibu Parida</p>
-                </div>
-
-                <div class="couple-amp">&amp;</div>
-
-                <div class="person">
+                    <div class="couple-amp">&amp;</div>
                     <div class="photo-frame">
                         <img src="foto-wanita.jpg" alt="Mempelai Wanita">
                     </div>
-                    <h3 class="gold-text">[Nama Pasangan]</h3>
-                    <p class="parent">Putri dari Bapak [Nama Bapak]<br>&amp; Ibu [Nama Ibu]</p>
+                </div>
+                <div class="couple-names">
+                    <div class="person">
+                        <h3 class="gold-text">Ferdi Aditya Putra</h3>
+                        <p class="parent">Putra dari Bapak Edi Junaedi<br>&amp; Ibu Parida</p>
+                    </div>
+                    <div class="person">
+                        <h3 class="gold-text">[Nama Pasangan]</h3>
+                        <p class="parent">Putri dari Bapak [Nama Bapak]<br>&amp; Ibu [Nama Ibu]</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+            <div class="timeline-item">
+                <span class="story-date">Maret 2023</span>
+                <h4 class="story-title">Menyatakan Cinta</h4>
+                <p class="story-text">Setelah lama saling mengenal, akhirnya kami memutuskan untuk melangkah bersama dan berkomitmen lebih serius.</p>
         <!-- Countdown -->
         <section class="section reveal">
             <div class="section-label">Save The Date</div>
@@ -886,6 +1125,10 @@
             <div class="section-label">Our Story</div>
             <h2 class="section-title gold-text">Kisah Perjalanan Kami</h2>
 
+            <div class="timeline-item">
+                <span class="story-date">Desember 2027</span>
+                <h4 class="story-title">Lamaran</h4>
+                <p class="story-text">Momen mendebarkan saat kedua keluarga besar bertemu. Cincin terpasang, mengikat janji untuk selamanya.</p>
             <div class="story">
                 <div class="timeline-item">
                     <span class="story-date">Januari 2021</span>
@@ -903,13 +1146,42 @@
                     <p class="story-text">Momen mendebarkan saat kedua keluarga besar bertemu. Cincin terpasang, mengikat janji untuk selamanya.</p>
                 </div>
             </div>
+        </div>
         </section>
 
+        <!-- Bagian Galeri Prewedding -->
+        <div class="galeri-prewed">
+            <span class="icon-text">📸</span>
+            <h3>Our Moments</h3>
+            
+            <img src="prewed1.jpg" alt="Prewedding 1" class="foto-prewed">
+            <img src="prewed2.jpg" alt="Prewedding 2" class="foto-prewed">
+            
+            <p style="font-style: italic; font-size: 14px; margin-top: 10px;">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</p>
+        </div>
         <!-- Galeri -->
         <section class="section reveal">
             <div class="section-label">Our Moments</div>
             <h2 class="section-title gold-text">Potret Kenangan</h2>
 
+        <!-- 1. Bagian Jadwal Acara -->
+        <div class="jadwal-acara">
+            <span class="icon-text">💍</span>
+            <h3>Akad Nikah</h3>
+            <p><strong>Jum'at, 25 Agustus 2028</strong><br>Pukul 11.00 WIB - Selesai</p>
+            <p><strong>Lokasi:</strong><br>Masjid / Tempat Akad</p>
+            
+            <div style="height: 1px; background: #eaeaea; margin: 20px 0;"></div>
+            
+            <span class="icon-text">🥂</span>
+            <h3>Resepsi Pernikahan</h3>
+            <p><strong>Jum'at, 25 Agustus 2028</strong><br>Pukul 12.00 WIB - 14.00 WIB</p>
+            <p><strong>Lokasi:</strong><br>Gedung Pernikahan / Tempat Resepsi</p>
+            
+            <a href="https://maps.google.com/" target="_blank" style="text-decoration: none;">
+                <button style="width: 100%; border-radius: 12px; margin-top: 15px;">📍 Buka Google Maps</button>
+            </a>
+        </div>
             <div class="gallery-grid">
                 <div class="g-item"><img src="prewed1.jpg" alt="Prewedding 1"></div>
                 <div class="g-item"><img src="prewed2.jpg" alt="Prewedding 2"></div>
@@ -921,6 +1193,14 @@
             </p>
         </section>
 
+        <!-- 2. Bagian Hitung Mundur (Countdown) - Aman & Rapi di HP (Tanpa Detik) -->
+        <div class="jadwal-acara">
+            <span class="icon-text">⏳</span>
+            <h3>Menuju Hari Bahagia</h3>
+            <div id="countdown" style="display: flex; gap: 10px; justify-content: center; font-weight: bold; font-size: 26px; color: #8b5a2b; margin-top: 20px;">
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="hari">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Hari</span>
         <!-- Jadwal Acara -->
         <section class="section reveal">
             <div class="section-label">The Celebration</div>
@@ -938,6 +1218,9 @@
                     </div>
                     <a class="btn-maps" href="https://maps.google.com/" target="_blank" rel="noopener">📍 Buka Maps</a>
                 </div>
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="jam">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Jam</span>
 
                 <div class="event-card">
                     <div class="event-icon">🥂</div>
@@ -950,6 +1233,9 @@
                     </div>
                     <a class="btn-maps" href="https://maps.google.com/" target="_blank" rel="noopener">📍 Buka Maps</a>
                 </div>
+                <div style="flex: 1; background: #fdfbf7; padding: 15px 5px; border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                    <span id="menit">00</span><br>
+                    <span style="font-size: 13px; font-weight: normal; color: #888;">Menit</span>
             </div>
         </section>
 
@@ -970,6 +1256,7 @@
                 </div>
                 <button class="btn btn-gold" style="margin-top:22px;" onclick="copyRekening()">📋 Salin Rekening</button>
             </div>
+        </div>
         </section>
 
         <!-- RSVP -->
@@ -977,6 +1264,16 @@
             <div class="section-label">RSVP</div>
             <h2 class="section-title gold-text">Konfirmasi Kehadiran</h2>
 
+        <!-- 3. Bagian Amplop Digital (Wedding Gift) -->
+        <div class="jadwal-acara">
+            <span class="icon-text">🎁</span>
+            <h3>Wedding Gift</h3>
+            <p style="font-size: 14px;">Bagi keluarga dan sahabat yang ingin memberikan tanda kasih, dapat mengirimkan melalui:</p>
+            
+            <div style="background: #fdfbf7; padding: 20px; border: 1px dashed #d4af37; border-radius: 12px; margin-top: 20px;">
+                <strong style="font-size: 18px; color: #333;">BCA - 1234567890</strong><br>
+                <span style="font-size: 14px; color: #666;">a.n Ferdi Aditya Putra</span><br>
+                <button style="padding: 10px 20px; font-size: 13px; margin-top: 15px; border-radius: 8px; width: auto;" onclick="copyRekening()">📋 Copy Rekening</button>
             <div class="card">
                 <p style="font-size:16px; color: var(--muted);">
                     Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui tombol di bawah ini.
@@ -992,8 +1289,18 @@
                     </a>
                 </div>
             </div>
+        </div>
         </section>
 
+        <!-- 4. Bagian RSVP WhatsApp -->
+        <div class="jadwal-acara">
+            <span class="icon-text">✉️</span>
+            <h3>RSVP</h3>
+            <p style="font-size: 14px;">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui tombol di bawah ini:</p>
+            <a href="https://wa.me/087813739668?text=Halo%20Ferdi,%20saya%20konfirmasi%20akan%20HADIR%20di%20acara%20pernikahannya." target="_blank" style="text-decoration: none;">
+                <button style="background: #25D366; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2); width: 100%; border-radius: 12px; margin-top: 10px;">💬 Konfirmasi via WhatsApp</button>
+            </a>
+        </div>
         <!-- Penutup -->
         <section class="section reveal">
             <p class="closing-text">
@@ -1002,6 +1309,10 @@
             </p>
             <p class="closing-wassalam">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
 
+        <p style="max-width: 500px; margin-top: 40px; font-style: italic;">
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+        </p>
+        <p style="font-weight: 600;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
             <div class="divider" style="margin: 34px auto 26px;">
                 <svg viewBox="0 0 320 40" xmlns="http://www.w3.org/2000/svg" fill="none">
                     <path d="M8 20h110M202 20h110" stroke="#c6a15b" stroke-width="1"/>
@@ -1012,6 +1323,8 @@
                 </svg>
             </div>
 
+        <div class="batik-ornament"></div>
+    </div>
             <div class="footer-credit">
                 <span class="script gold-text">Ferdi &amp; [Nama Pasangan]</span>
                 25 · 08 · 2028
@@ -1019,20 +1332,36 @@
         </section>
     </main>
 
+    <!-- SCRIPT JAVASCRIPT -->
     <!-- ===================== SCRIPT ===================== -->
     <script>
+        // --- 1. SCRIPT NAMA TAMU & BUKA UNDANGAN ---
         /* ---- 1. NAMA TAMU DARI URL (?to=Nama) ---- */
         const urlParams = new URLSearchParams(window.location.search);
         let namaTamu = urlParams.get('to');
+
+        if (!namaTamu) {
+            namaTamu = "Tamu Undangan";
+        }
+
         if (!namaTamu || !namaTamu.trim()) namaTamu = "Tamu Undangan";
         document.getElementById('nama-tamu-cover').innerText = namaTamu;
 
         /* ---- 2. BUKA UNDANGAN ---- */
         function bukaUndangan() {
             document.getElementById('cover-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'flex';
+            
+            let music = document.getElementById('bg-music');
+            music.play().catch(error => {
+                console.log("Musik tidak bisa diputar otomatis:", error);
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             document.getElementById('main-content').style.display = 'block';
             document.getElementById('music-toggle').style.display = 'flex';
 
+            // Memicu animasi bunga jatuh saat undangan dibuka
             const music = document.getElementById('bg-music');
             music.play().then(() => {
                 document.getElementById('music-toggle').classList.add('playing');
@@ -1043,6 +1372,10 @@
             mulaiPartikel();
         }
 
+        // --- 2. SCRIPT COPY REKENING ---
+        function copyRekening() {
+            navigator.clipboard.writeText("1234567890"); 
+            alert("Nomor rekening BCA berhasil disalin!");
         /* ---- 3. TOGGLE MUSIK ---- */
         function toggleMusic() {
             const music = document.getElementById('bg-music');
@@ -1055,6 +1388,12 @@
             }
         }
 
+        // --- 3. SCRIPT COUNTDOWN (Tanpa Detik) ---
+        const tanggalAcara = new Date("Aug 25, 2028 10:00").getTime();
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = tanggalAcara - sekarang;
         /* ---- 4. SALIN REKENING ---- */
         function copyRekening() {
             const teks = "1234567890";
@@ -1071,15 +1410,22 @@
             alert(msg);
         }
 
+            const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+            const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
         /* ---- 5. COUNTDOWN ---- */
         const tanggalAcara = new Date("Aug 25, 2028 10:00:00").getTime();
         function pad(n) { return String(n).padStart(2, '0'); }
 
+            document.getElementById("hari").innerHTML = hari;
+            document.getElementById("jam").innerHTML = jam;
+            document.getElementById("menit").innerHTML = menit;
         const hitungMundur = setInterval(function () {
             const selisih = tanggalAcara - new Date().getTime();
 
             if (selisih < 0) {
                 clearInterval(hitungMundur);
+                document.getElementById("countdown").innerHTML = "<div style='width: 100%; text-align: center;'>ACARA SEDANG BERLANGSUNG</div>";
                 document.getElementById('countdown').innerHTML =
                     '<div style="grid-column: 1 / -1; text-align:center; font-size:18px; letter-spacing:.1em; color: var(--gold-dark);">ACARA SEDANG BERLANGSUNG</div>';
                 return;
@@ -1096,20 +1442,28 @@
             document.getElementById("detik").innerText = pad(detik);
         }, 1000);
 
+        // --- 4. SCRIPT BUNGA GUGUR ---
         /* ---- 6. KELOPAK BUNGA GUGUR ---- */
         function mulaiBungaGugur() {
+            setInterval(function() {
             const warna = ['#e8cf9f', '#d9b98a', '#f4e0c3', '#c9a26b'];
             setInterval(function () {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
+                
                 const size = 8 + Math.random() * 10;
                 petal.style.width = size + 'px';
                 petal.style.height = size + 'px';
                 petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = Math.random() * 4 + 3 + 's';
+                
                 petal.style.background = 'linear-gradient(135deg, #f6ead2 0%, ' + warna[Math.floor(Math.random() * warna.length)] + ' 100%)';
                 petal.style.opacity = 0.55 + Math.random() * 0.35;
                 petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
                 document.body.appendChild(petal);
+                
+                setTimeout(() => { petal.remove(); }, 7000);
+            }, 400); 
                 setTimeout(() => petal.remove(), 10000);
             }, 420);
         }
