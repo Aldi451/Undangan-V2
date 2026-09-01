@@ -1,6 +1,6 @@
 # 💌 Website Undangan Pernikahan Digital
 
-Undangan pernikahan digital berbasis *web* modern, elegan, dan interaktif dengan tema putih berornamen batik tradisional Indonesia. Dirancang ringan tanpa membutuhkan *database* server yang rumit, sehingga sangat optimal dan cepat diakses melalui perangkat seluler (*mobile-friendly*).
+Undangan pernikahan digital berbasis *web* modern, elegan, dan interaktif dengan tema *champagne gold & ivory* bernuansa undangan mewah. Menggunakan tipografi premium (*Great Vibes*, *Cormorant Garamond*, *Montserrat*), bingkai foto lengkung (arch), ornamen emas, animasi *scroll-reveal*, kelopak bunga gugur, dan partikel emas melayang. Dirancang ringan tanpa membutuhkan *database* server yang rumit, sehingga sangat optimal dan cepat diakses melalui perangkat seluler (*mobile-friendly*).
 
 ---
 
@@ -19,13 +19,13 @@ Undangan pernikahan digital berbasis *web* modern, elegan, dan interaktif dengan
 * **📸 Galeri Prewedding (Our Moments):** 
   Wadah khusus untuk memajang foto-foto pra-nikah terbaik dengan bingkai kartu modern yang elegan.
 * **⏳ Hitung Mundur Acara (Countdown Timer):** 
-  Penghitung waktu interaktif secara *real-time* menuju hari pelaksanaan akad dan resepsi tanpa elemen detik agar tetap rapi di layar HP.
+  Penghitung waktu interaktif secara *real-time* (hari, jam, menit, detik) menuju hari pelaksanaan akad dan resepsi, ditampilkan dalam kartu elegan berbingkai emas.
 * **🎁 Amplop Digital (Wedding Gift):** 
   Fitur informasi rekening bank lengkap dengan tombol salin otomatis (*copy to clipboard*) untuk memudahkan tamu memberikan tanda kasih.
 * **✉️ RSVP & Konfirmasi Kehadiran via WhatsApp:** 
   Tombol interaktif yang mengarahkan tamu secara otomatis ke aplikasi WhatsApp pengantin untuk melakukan konfirmasi kehadiran.
-* **🎨 Desain Responsif & Tema Batik Eksklusif:** 
-  Menggunakan latar belakang bernuansa batik tradisional khas Indonesia yang dipadukan dengan tipografi mewah bergradien warna emas.
+* **🎨 Desain Responsif & Tema Undangan Mewah:** 
+  Latar belakang ivory bertekstur linen halus, bingkai emas ganda pada halaman cover, bingkai foto lengkung (arch), tipografi *script* mewah bergradien emas, serta animasi muncul halus saat halaman digulir.
 
 ---
 
@@ -34,6 +34,7 @@ Undangan pernikahan digital berbasis *web* modern, elegan, dan interaktif dengan
 * `index.html` — Halaman utama undangan digital yang diakses oleh para tamu.
 * `generator.html` — Alat bantu admin/pengantin untuk *generate* tautan undangan per nama tamu.
 * `lagu-pernikahan.mp3` — Berkas audio latar belakang musik pernikahan.
+* `cover-bg.jpg` — Berkas latar belakang halaman cover (floral ivory & gold).
 * `foto-pria.jpg` & `foto-wanita.jpg` — Berkas foto profil calon mempelai.
 * `prewed1.jpg` & `prewed2.jpg` — Berkas foto galeri pra-nikah.
 
